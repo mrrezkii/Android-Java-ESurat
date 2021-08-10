@@ -52,11 +52,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void getLogin() {
-        Call<LoginResponse> call = apiService.login("supre", "Admin123");
+        Call<LoginResponse> call = apiService.login(et_username.getText().toString(), et_password.getText().toString());
         call.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                if (response.isSuccessful()) {
+                if (response.body().getStatus() == 200) {
                     Toast.makeText(getApplicationContext(), "Login Sukses", Toast.LENGTH_SHORT).show();
                     String token = response.body().getToken();
 
@@ -64,8 +64,10 @@ public class LoginActivity extends AppCompatActivity {
 
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     finish();
+                } else if (response.body().getStatus() == 500) {
+                    Toast.makeText(getApplicationContext(), "Password Salah", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getApplicationContext(), response.code(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "" + response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
