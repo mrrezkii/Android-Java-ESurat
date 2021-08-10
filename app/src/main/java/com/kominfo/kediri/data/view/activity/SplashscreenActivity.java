@@ -6,7 +6,6 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.kominfo.kediri.MainActivity;
 import com.kominfo.kediri.R;
 
 public class SplashscreenActivity extends AppCompatActivity {
@@ -23,7 +22,7 @@ public class SplashscreenActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 finish();
             }
         }, 3000L);
