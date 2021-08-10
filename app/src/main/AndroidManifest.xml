@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Surat">
         <activity
+            android:name=".data.view.activity.DetailSuratKeluarActivity"
+            android:exported="true" />
+        <activity
+            android:name=".data.view.activity.DetailSuratMasukActivity"
+            android:exported="true" />
+        <activity
+            android:name=".data.view.activity.DashboardUmumActivity"
+            android:exported="true" />
+        <activity
             android:name=".data.view.activity.LoginActivity"
             android:exported="true" />
         <activity

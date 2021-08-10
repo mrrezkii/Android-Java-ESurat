@@ -62,8 +62,13 @@ public class LoginActivity extends AppCompatActivity {
 
                     sharedPreferencesUtil.saveSPString(SharedPreferencesUtils.SP_TOKEN, token);
 
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    finish();
+                    if (response.body().getRoleid().equals("160.00.1.1")) {
+                        startActivity(new Intent(getApplicationContext(), DashboardUmumActivity.class));
+                        finish();
+                    } else {
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        finish();
+                    }
                 } else if (response.body().getStatus() == 500) {
                     Toast.makeText(getApplicationContext(), "Password Salah", Toast.LENGTH_SHORT).show();
                 } else {
