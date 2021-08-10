@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Surat">
         <activity
+            android:name=".data.view.activity.CreateSuratActivity"
+            android:exported="true" />
+        <activity
+            android:name=".data.view.activity.DashboardUserEntryActivity"
+            android:exported="true" />
+        <activity
             android:name=".data.view.activity.DetailSuratKeluarActivity"
             android:exported="true" />
         <activity

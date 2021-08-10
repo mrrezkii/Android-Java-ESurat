@@ -62,8 +62,11 @@ public class LoginActivity extends AppCompatActivity {
 
                     sharedPreferencesUtil.saveSPString(SharedPreferencesUtils.SP_TOKEN, token);
 
-                    if (response.body().getRoleid().equals("160.00.1.1")) {
+                    if (response.body().getRoleid().equals("160.00.1.1") || response.body().getRoleid().equals("160.00.1")) {
                         startActivity(new Intent(getApplicationContext(), DashboardUmumActivity.class));
+                        finish();
+                    } else if (response.body().getRoleid().equals("160.00.1.1.1.2")) {
+                        startActivity(new Intent(getApplicationContext(), DashboardUserEntryActivity.class));
                         finish();
                     } else {
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
